@@ -1,0 +1,87 @@
+//
+//  PrefixHeader.pch
+//  art
+//
+//  Created by Apple on 16/1/13.
+//  Copyright © 2016年 sunyan. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define kScreen_Frame (CGRectMake(0, 0 ,SCREEN_WIDTH,SCREEN_HEIGHT))
+#define SELF_VIEW_BOUNDS self.view.bounds
+
+#define IS_IOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
+#define IS_IOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8)
+#define IS_IOS9 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9)
+
+#import "UIView+Extension.h"
+//#import "UIViewExt.h"
+#import "AppDelegate.h"
+//#import "MobClick.h"
+//#import "Masonry.h"
+//#import "GlobalModel.h"
+//#import "UIViewController+hideHud.h"
+//#import "UIAlertView+Show.h"
+//
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+//#import <Availability.h>
+#import "UIView+UIViewController.h"
+#import "UIViewController+HUD.h"
+#import "MBProgressHUD.h"
+
+#define Color(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+#define X(v)                  (v).frame.origin.x
+#define Y(v)                  (v).frame.origin.y
+#define WIDTH(v)              (v).frame.size.width
+#define HEIGHT(v)             (v).frame.size.height
+
+//#define urlString @"https://www.artapp.cn/ArtAppWebTest/rest/%@"
+//#define urlString @"https://www.artapp.cn/ArtAppWeb/rest/%@"
+#define urlString @"http://192.168.1.171:8080/ArtAppWeb/rest/%@"
+//#define urlString @"http://artapp.cn:9999/ArtAppWeb/rest/%@"
+//#define urlString @"https://www.artapp.cn/ArtAppWeb1_2_7/rest/%@"
+
+
+#define imgUrlString @"http://artapp-dev-bucket.oss-cn-beijing.aliyuncs.com/%@"
+
+#define bgColor Color(255, 254, 223, 0.03)
+
+//手机屏幕高度
+#define HEIGHT_5 568.0
+#define HEIGHT_4 480.0
+#define HEIGHT_6P 736.0
+#define HEIGHT_6 667.0
+
+//老师日历变换时所用的通知名称
+#define datePostNotification @"datePostNotification"
+
+/*
+ * NSLog
+ */
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define NSLog(...)
+#define debugMethod()
+#endif
+
+// 获取当前页面（友盟统计需要用到）
+#define CURRENT_PAGE NSStringFromClass([self class])
+
+/**
+ *  NullSafe
+ */
+#ifdef DEBUG
+#define NULLSAFE_ENABLED 0
+#endif
+
+#endif
