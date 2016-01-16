@@ -14,12 +14,15 @@
 
 @implementation RegisterView{
     
-    UIView *_teaStuView;
-    UIButton *_teacherButton;
-    UIButton *_studentButton;
+    UIView *teaStuView;
+
+    UIButton *_selectST;
+    //三角形按钮
+    UIButton *_selectButton;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
+    
     if ([super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
         
@@ -75,14 +78,17 @@
         [whiteView addSubview:lineView];
      
     }
+    UIControl *selectBtnC = [[UIControl alloc] init];
+    selectBtnC.frame = CGRectMake(whiteView.bounds.size.width-54,0, 50,70);
+    [selectBtnC addTarget:self action:@selector(_selectButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [whiteView addSubview:selectBtnC];
     
-    UIButton *selectButton = [[UIButton alloc] init];
-    selectButton.frame= CGRectMake(whiteView.bounds.size.width-24,32, 11,6);
-    [selectButton setImage:[UIImage imageNamed:@"gister_buttom_triangle"] forState:UIControlStateNormal];
-    [selectButton setImage:[UIImage imageNamed:@"gister_buttom_triangle_click"] forState:UIControlStateSelected];
-    selectButton.selected = NO;
-    [selectButton addTarget:self action:@selector(selectButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [whiteView addSubview:selectButton];
+    _selectButton = [[UIButton alloc] init];
+    _selectButton.frame= CGRectMake(30,34, 11,6);
+    [_selectButton setImage:[UIImage imageNamed:@"gister_buttom_triangle"] forState:UIControlStateNormal];
+    [_selectButton setImage:[UIImage imageNamed:@"gister_buttom_triangle_click"] forState:UIControlStateSelected];
+    _selectButton.selected = NO;
+    [selectBtnC addSubview:_selectButton];
     
     UIControl *bgControl = [[UIControl alloc] initWithFrame:CGRectMake(0,  CGRectGetMaxY(whiteView.frame)+17, 100, 15)];
     [bgControl addTarget:self action:@selector(bgControlButtonAction) forControlEvents:UIControlEventTouchUpInside];
@@ -117,77 +123,80 @@
     [nextButton addTarget:self action:@selector(ButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [bgView addSubview:nextButton];
 
+    //选择角色（老师学生）父视图
+    teaStuView = [[UIView alloc] initWithFrame:CGRectMake(self.bounds.size.width-13-105, 32+20, 105, 90)];
+    teaStuView.backgroundColor = [UIColor whiteColor];
+    teaStuView.layer.cornerRadius = 5;
+    teaStuView.clipsToBounds = YES;
+    teaStuView.layer.borderWidth = 1;
+    teaStuView.layer.borderColor = Color(238, 238, 238, 1).CGColor;
+    teaStuView.hidden = YES;
+    [self addSubview:teaStuView];
+    
+    UIButton *teacherButton = [[UIButton alloc] init];
+    teacherButton.frame= CGRectMake(0, 0,105,45);
+    teacherButton.backgroundColor =Color(245, 245, 245, 1);
+    teacherButton.layer.cornerRadius = 5;
+    teacherButton.selected = YES;
+    teacherButton.clipsToBounds = YES;
+    [teacherButton setTitle:@"老师" forState:UIControlStateNormal];
+    [teacherButton setTitleColor:Color(75, 75, 75, 1) forState:UIControlStateNormal];
+    [teacherButton addTarget:self action:@selector(teaStuButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    _selectST = teacherButton;
+    [teaStuView addSubview:teacherButton];
+    
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 45, teaStuView.bounds.size.width, 1)];
+    lineView.backgroundColor = Color(238, 238, 238, 1);
+    [teaStuView addSubview:lineView];
+    
+    UIButton  *studentButton = [[UIButton alloc] init];
+    studentButton.frame= CGRectMake(0, 45,105,45);
+    studentButton.layer.cornerRadius = 5;
+    studentButton.clipsToBounds = YES;
+    studentButton.selected = NO;
+    [studentButton setTitle:@"学生" forState:UIControlStateNormal];
+    [studentButton setTitleColor:Color(75, 75, 75, 1) forState:UIControlStateNormal];
+    [studentButton addTarget:self action:@selector(teaStuButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [teaStuView addSubview:studentButton];
+    
+
+    
+
     
 }
 
-//选择老师学生
-- (void)selectButtonAction:(UIButton *)sender{
-    
+//三角按钮（选择角色）
+- (void)_selectButtonAction:(UIButton *)sender{
+    _selectButton.selected = !_selectButton.selected;
     sender.selected = !sender.selected;
     if (sender.selected) {
         
-        _teaStuView = [[UIView alloc] initWithFrame:CGRectMake(self.bounds.size.width-13-105, 32+20, 105, 90)];
-        _teaStuView.backgroundColor = [UIColor whiteColor];
-        _teaStuView.layer.cornerRadius = 5;
-        _teaStuView.clipsToBounds = YES;
-        _teaStuView.layer.borderWidth = 1;
-        _teaStuView.layer.borderColor = Color(238, 238, 238, 1).CGColor;
-        [self addSubview:_teaStuView];
-        
-        
-        _teacherButton = [[UIButton alloc] init];
-        _teacherButton.frame= CGRectMake(0, 0,105,45);
-        _teacherButton.backgroundColor =Color(245, 245, 245, 1);
-        _teacherButton.layer.cornerRadius = 5;
-        _teacherButton.selected = YES;
-        _teacherButton.clipsToBounds = YES;
-        [_teacherButton setTitle:@"老师" forState:UIControlStateNormal];
-        [_teacherButton setTitleColor:Color(75, 75, 75, 1) forState:UIControlStateNormal];
-        [_teacherButton addTarget:self action:@selector(teaStuButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_teaStuView addSubview:_teacherButton];
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 45, _teaStuView.bounds.size.width, 1)];
-        lineView.backgroundColor = Color(238, 238, 238, 1);
-        [_teaStuView addSubview:lineView];
-        
-        
-        _studentButton = [[UIButton alloc] init];
-        _studentButton.frame= CGRectMake(0, 45,105,45);
-        _studentButton.layer.cornerRadius = 5;
-        _studentButton.clipsToBounds = YES;
-        _studentButton.selected = NO;
-        [_studentButton setTitle:@"学生" forState:UIControlStateNormal];
-        [_studentButton setTitleColor:Color(75, 75, 75, 1) forState:UIControlStateNormal];
-        [_studentButton addTarget:self action:@selector(teaStuButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_teaStuView addSubview:_studentButton];
-
+        teaStuView.hidden = NO;
         
     }else
     {
-        _teaStuView.hidden = YES;
+        teaStuView.hidden = YES;
     }
 }
 
-
+//选择角色（老师学生）
 - (void)teaStuButtonAction:(UIButton *)sender{
-    sender.selected = !sender.selected;
-    if (_teacherButton.selected)
-    {
-        _teacherButton.backgroundColor = Color(245, 245, 245, 1);
-        _studentButton.backgroundColor = [UIColor clearColor];
-        _studentButton.selected = NO;
-        
-    }
-    if (_studentButton.selected)
-    {
-        _studentButton.backgroundColor = Color(245, 245, 245, 1);
-        _teacherButton.backgroundColor = [UIColor clearColor];
-        _teacherButton.selected = NO;
-    }
+   
+
+    _selectST.selected = NO;
+    _selectST.backgroundColor = [UIColor clearColor];
     
+    sender.selected = YES;
+    sender.backgroundColor = Color(245, 245, 245, 1);
+    _selectST = sender;
+  
     
 }
 
-
+/**
+ *  记住密码 1
+ *  下一步 2
+ */
 - (void)ButtonAction:(UIButton *)sender{
     if ([self.delegete respondsToSelector:@selector(RegisterView:didClick:)]) {
         [self.delegete RegisterView:self didClick:sender];
@@ -211,7 +220,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     [self endEditing:YES];
-    _teaStuView.hidden =YES;
+    teaStuView.hidden =YES;
     
 }
 

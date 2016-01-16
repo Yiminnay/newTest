@@ -13,7 +13,11 @@
 
 - (void)viewDidLoad{
  
-
-}
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rigester_bg"]];
+    self.title = @"首页";
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    }
 
 @end

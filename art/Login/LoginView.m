@@ -82,7 +82,7 @@
     sigUpButton.tag = 1;
     sigUpButton.layer.cornerRadius = 5;
     sigUpButton.clipsToBounds = YES;
-    [sigUpButton setTitle:@"登 陆" forState:UIControlStateNormal];
+    [sigUpButton setTitle:@"登 录" forState:UIControlStateNormal];
     sigUpButton.backgroundColor = Color(244, 73, 51, 1);
     [bgView addSubview:sigUpButton];
     

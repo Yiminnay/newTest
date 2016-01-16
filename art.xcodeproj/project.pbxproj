@@ -89,6 +89,9 @@
 		18599D6D1C4669C60016C39C /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18599D661C4669C60016C39C /* UIViewController+HUD.m */; };
 		18599D701C466C010016C39C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18599D6F1C466C010016C39C /* RegisterViewController.m */; };
 		18599D731C466C980016C39C /* ForgetPassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18599D721C466C980016C39C /* ForgetPassController.m */; };
+		18DBF42F1C49DAC500A326D4 /* ForgetPassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DBF42E1C49DAC500A326D4 /* ForgetPassView.m */; };
+		18DBF4321C4A165700A326D4 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DBF4311C4A165700A326D4 /* BaseTableView.m */; };
+		18DBF4351C4A18DC00A326D4 /* StuSelfTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DBF4341C4A18DC00A326D4 /* StuSelfTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,6 +280,12 @@
 		18599D6F1C466C010016C39C /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = ../RegisterViewController.m; sourceTree = "<group>"; };
 		18599D711C466C980016C39C /* ForgetPassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetPassController.h; path = ../ForgetPassController.h; sourceTree = "<group>"; };
 		18599D721C466C980016C39C /* ForgetPassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetPassController.m; path = ../ForgetPassController.m; sourceTree = "<group>"; };
+		18DBF42D1C49DAC500A326D4 /* ForgetPassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassView.h; sourceTree = "<group>"; };
+		18DBF42E1C49DAC500A326D4 /* ForgetPassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassView.m; sourceTree = "<group>"; };
+		18DBF4301C4A165700A326D4 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
+		18DBF4311C4A165700A326D4 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
+		18DBF4331C4A18DC00A326D4 /* StuSelfTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StuSelfTableView.h; path = ../controller/StuSelfTableView.h; sourceTree = "<group>"; };
+		18DBF4341C4A18DC00A326D4 /* StuSelfTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StuSelfTableView.m; path = ../controller/StuSelfTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +346,8 @@
 				18599D541C464F350016C39C /* LoginView.m */,
 				1800D8861C473B1C00282DED /* RegisterView.h */,
 				1800D8871C473B1C00282DED /* RegisterView.m */,
+				18DBF42D1C49DAC500A326D4 /* ForgetPassView.h */,
+				18DBF42E1C49DAC500A326D4 /* ForgetPassView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -417,6 +428,8 @@
 			children = (
 				18599D3B1C4641290016C39C /* BaseViewController.h */,
 				18599D3C1C4641290016C39C /* BaseViewController.m */,
+				18DBF4301C4A165700A326D4 /* BaseTableView.h */,
+				18DBF4311C4A165700A326D4 /* BaseTableView.m */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -809,6 +822,8 @@
 		18599D391C463FE30016C39C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18DBF4331C4A18DC00A326D4 /* StuSelfTableView.h */,
+				18DBF4341C4A18DC00A326D4 /* StuSelfTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -976,6 +991,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DBF4321C4A165700A326D4 /* BaseTableView.m in Sources */,
 				18599D491C4642680016C39C /* SYItemView.m in Sources */,
 				18599D191C463E990016C39C /* UIButton+WebCache.m in Sources */,
 				18599D551C464F350016C39C /* LoginView.m in Sources */,
@@ -984,6 +1000,7 @@
 				18599CFE1C463E990016C39C /* MASCompositeConstraint.m in Sources */,
 				1800D8881C473B1C00282DED /* RegisterView.m in Sources */,
 				18599D071C463E990016C39C /* ViewController+MASAdditions.m in Sources */,
+				18DBF4351C4A18DC00A326D4 /* StuSelfTableView.m in Sources */,
 				18599D6A1C4669C60016C39C /* MBProgressHUD.m in Sources */,
 				18599D1D1C463E990016C39C /* UIImageView+HighlightedWebCache.m in Sources */,
 				18599D061C463E990016C39C /* View+MASAdditions.m in Sources */,
@@ -1026,6 +1043,7 @@
 				18599CF51C463E990016C39C /* UIAlertView+AFNetworking.m in Sources */,
 				18599CEB1C463E990016C39C /* AFHTTPRequestOperationManager.m in Sources */,
 				18599CEE1C463E990016C39C /* AFSecurityPolicy.m in Sources */,
+				18DBF42F1C49DAC500A326D4 /* ForgetPassView.m in Sources */,
 				18599D1A1C463E990016C39C /* UIImage+GIF.m in Sources */,
 				18599CFA1C463E990016C39C /* UIWebView+AFNetworking.m in Sources */,
 				18599D521C46492A0016C39C /* UIView+Extension.m in Sources */,
@@ -1196,7 +1214,7 @@
 					"$(PROJECT_DIR)/art/ThildLibrary/lame",
 					"$(PROJECT_DIR)/art/ThildLibrary/LibBPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gqlx.art;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.artapp.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1215,7 +1233,7 @@
 					"$(PROJECT_DIR)/art/ThildLibrary/lame",
 					"$(PROJECT_DIR)/art/ThildLibrary/LibBPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gqlx.art;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.artapp.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

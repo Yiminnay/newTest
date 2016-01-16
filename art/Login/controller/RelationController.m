@@ -10,4 +10,11 @@
 
 @implementation RelationController
 
+-(void)viewDidLoad{
+    
+    self.title = @"信息认证";
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rigester_bg"]];
+    
+}
+
 @end

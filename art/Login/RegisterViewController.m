@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "RegisterView.h"
+#import "RelationController.h"
 
 @interface RegisterViewController ()<RegisterViewDelegate>
 
@@ -33,8 +34,9 @@
     
     //返回
     UIButton *backButton = [[UIButton alloc] init];
-    backButton.frame= CGRectMake(18, SCREEN_HEIGHT-80, 10.5,18);
+    backButton.frame= CGRectMake(18, SCREEN_HEIGHT-80, 80,18);
     [backButton setImage:[UIImage imageNamed:@"register_back"] forState:UIControlStateNormal];
+    [backButton setTitle:@"返回" forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
 }
@@ -44,9 +46,10 @@
     if (sender.tag == 1) {//记住密码
         sender.selected = !sender.selected;
     }
-    else
+    else//下一步
     {
-        
+        RelationController *relationVC = [[RelationController alloc] init];
+        [self.navigationController pushViewController:relationVC animated:YES];
     }
 }
 //返回

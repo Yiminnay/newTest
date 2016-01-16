@@ -10,4 +10,15 @@
 
 @implementation StuNewsController
 
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+   self.title = @"消息";
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
 @end

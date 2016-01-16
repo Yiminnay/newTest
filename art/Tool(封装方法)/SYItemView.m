@@ -29,7 +29,7 @@
     
     //标题
     _itemLable = [[UILabel alloc] initWithFrame:CGRectMake(0, itemHeight-20.f, itemWide, 20.f)];
-    _itemLable.textColor = [UIColor whiteColor];
+    _itemLable.textColor = [UIColor grayColor];
     _itemLable.font = [UIFont systemFontOfSize:10.f];
     _itemLable.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_itemLable];

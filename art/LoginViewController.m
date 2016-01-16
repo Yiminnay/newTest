@@ -59,10 +59,11 @@
 - (void)LoginView:(LoginView *)loginView didClick:(UIButton *)sender{
     if (sender.tag == 1)//登陆
     {
-//        MainViewController *mainVC = [[MainViewController alloc] init];
-//        ArtNavigationController *artNaviVC = [[ArtNavigationController alloc] initWithRootViewController:mainVC];
-//        [self presentViewController:artNaviVC animated:YES completion:nil];
+        MainViewController *mainVC = [[MainViewController alloc] init];
+        ArtNavigationController *artNaviVC = [[ArtNavigationController alloc] initWithRootViewController:mainVC];
+        [self presentViewController:artNaviVC animated:YES completion:nil];
         
+        return;
         
         if (_loginView.phoneNum.text.length != 11) {
             [self showHint:@"手机号错误!"];

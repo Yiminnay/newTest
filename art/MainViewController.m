@@ -79,7 +79,7 @@
     }
     //2.tabbarimage添加背景图片
     UIImageView *tabBarBGView = [[UIImageView alloc ] initWithFrame:self.tabBar.bounds];
-    tabBarBGView.image = [UIImage imageNamed:@"tab_bg_all"];
+    tabBarBGView.image = [UIImage imageNamed:@"49"];
 //    UIView *v = [[UIView alloc ] initWithFrame:CGRectMake(0, 0, kScreenWidth, 69)];
 //    v.backgroundColor = [UIColor blackColor];
 //    [self.tabBar addSubview:v];
@@ -88,8 +88,8 @@
     // 3.添加按钮
     // 按钮标题名
     NSArray *titles = @[@"首页",@"消息",@"我"];
-    NSArray *imageNames = @[@"shouye",@"shouye",@"shouye"];
-    NSArray *selectImageNames = @[@"shouye_sel",@"shouye_sel",@"shouye_sel"];
+    NSArray *imageNames = @[@"gister_buttom_role",@"gister_buttom_role",@"gister_buttom_role"];
+    NSArray *selectImageNames = @[@"gister_buttom_people",@"gister_buttom_people",@"gister_buttom_people"];
     
     CGFloat itemWidth =[UIScreen mainScreen].bounds.size.width/_vcs.count;
     //设置UITabBar栏的3个按钮
@@ -97,7 +97,7 @@
         SYItemView *sy = [[SYItemView alloc ] initWithFrame:CGRectMake(i*itemWidth, 0, itemWidth, 49.f)];
         [sy setItemImage:[UIImage imageNamed:imageNames[i]] forControlState:UIControlStateNormal ];
         [sy setItemImage:[UIImage imageNamed:selectImageNames[i]] forControlState:UIControlStateSelected];
-        [sy setItemTitle:titles[i] withSpecialTextColor:[UIColor redColor]];
+        [sy setItemTitle:titles[i] withSpecialTextColor:[UIColor whiteColor]];
         
         [self.tabBar addSubview:sy];
         
@@ -131,5 +131,7 @@
     [super didReceiveMemoryWarning];
     
 }
+
+
 
 @end
